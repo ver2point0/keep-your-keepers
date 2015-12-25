@@ -7,4 +7,4 @@ Keep your Keepers allows users to bookmark URLs via email, browse other's bookma
 
 ## Make a Keep, share your Keepers
 
-The current version is deployed on Heroku: [Hungry cards]()
+The current version is deployed on Heroku: [Keep your Keepers]()
