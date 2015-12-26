@@ -1,3 +1,4 @@
+[![ghit.me](https://ghit.me/badge.svg?repo=ver2point0/keep-your-keepers)](https://ghit.me/repo/ver2point0/keep-your-keepers)
 # Keep your Keepers
 
 ## Summary
