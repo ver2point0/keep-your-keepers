@@ -10,7 +10,21 @@
 <body>
 
 <div class="container">
-  
+  <ul class="nav nav-tabs divider-color">
+    <li><%= link_to "Keep your Keepers", root_path %></li>
+    <div class="pull-right user-in-out">
+      <% if user_signed_in? %>
+        Signed in as: <strong><%= current_user.username %></strong> ||
+        <!--change keepers path to user#show-->
+        <%= link_to "Keepers", edit_user_registration_path, class: "btn btn-default" %> || 
+        <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-default" %> || 
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-default" %>
+      <% else %>
+        <%= link_to "Sign in", new_user_session_path, class: "btn btn-default" %> ||
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-default" %>
+      <% end %>
+    </div>
+  </ul>
   
   <div class="flash">  
     <% if flash[:notice] %>

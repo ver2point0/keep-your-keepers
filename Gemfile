@@ -30,6 +30,10 @@ group :development do
   gem 'spring'  
 end
 
+# Use faker to generate random data
+gem 'faker'
+# Use devise for authentication
+gem 'devise'
 # Use figaro to store credentials
 gem 'figaro'
 # Use bootstrap for style
