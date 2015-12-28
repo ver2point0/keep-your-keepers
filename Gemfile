@@ -30,6 +30,8 @@ group :development do
   gem 'spring'  
 end
 
+# Use figaro to store credentials
+gem 'figaro'
 # Use bootstrap for style
 gem 'bootstrap-sass'
 # Use SCSS for stylesheets
