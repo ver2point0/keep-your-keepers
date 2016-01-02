@@ -1,10 +1,7 @@
 class KeepsController < ApplicationController
   
-  def index
-    @keeps = Keep.all
-  end
-
   def show
+    @keep_show = Keep.find(params[:id])
   end
 
   def new
@@ -16,7 +13,7 @@ class KeepsController < ApplicationController
     
     if @keep.save
       flash.now[:notice] = "Keep was saved."
-      redirect_to keeps_path
+      redirect_to root_path
     else
       flash.now[:error] = "Keep failed to save."
       render :new
@@ -34,10 +31,10 @@ class KeepsController < ApplicationController
     
     if @keep.destroy
       flash.now[:notice] = "\"#{@keep.title}\" successfully deleted."
-      redirect_to keeps_path
+      redirect_to root_path
     else
       flash.now[:error] = "\"#{@keep.title}\" failed to delete."
-      redirect_to keeps_path
+      redirect_to root_path
     end
   end
   
