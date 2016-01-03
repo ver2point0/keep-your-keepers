@@ -1,8 +1,7 @@
 <div class="media">
-   <div class="media-body">
-     <h4 class="media-heading"> 
-       <p><%= link_to keep.title %> 
-       <%= link_to "Delete Keep", [current_user, keep], method: :delete, class: "btn btn-danger" %></p> 
-     </h4>
-   </div>
+  <div class="media-body">
+    <h4 class="media-heading"> 
+      <p><%= link_to keep.title, user_keep_path(current_user, keep.id), class: "label label-default default-primary-color" %></p> 
+    </h4>
+  </div>
 </div>
