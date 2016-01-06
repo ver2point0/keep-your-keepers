@@ -21,9 +21,11 @@ class KeepsController < ApplicationController
   end
   
   def edit
+    # implement action
   end
   
   def update
+    # implement action
   end
   
   def destroy
