@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
-<h1>Keeps</h1>
-<%= link_to "New Keep", new_user_keep_path(current_user), class: "btn btn-success" %>
+  <h1 class="header-to-left-button">Keeps</h1>
+  <%= link_to "New Keep", new_user_keep_path(current_user), class: "btn btn-success" %>
   <%= render partial: "keeps/keep", collection: current_user.keeps %>
 <% else %>
   <div class="jumbotron text-center accent-color">

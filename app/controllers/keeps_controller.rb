@@ -1,7 +1,7 @@
 class KeepsController < ApplicationController
   
   def show
-    @keep_show = Keep.find(params[:id])
+    @keep = Keep.find(params[:id])
   end
 
   def new
@@ -12,31 +12,40 @@ class KeepsController < ApplicationController
     @keep = current_user.keeps.new(keeps_params)
     
     if @keep.save
-      flash.now[:notice] = "Keep was saved."
+      flash[:notice] = "Keep was saved."
       redirect_to root_path
     else
-      flash.now[:error] = "Keep failed to save."
+      flash[:error] = "Keep failed to save."
       render :new
     end
   end
   
   def edit
-    # implement action
+    @keep = Keep.find(params[:id])
   end
   
   def update
-    # implement action
+    @keep = Keep.find(params[:id])
+    @keep.title = params[:keep][:title]
+    
+    if @keep.save
+      flash[:notice] = "Keep successfully updated."
+      redirect_to root_path
+    else
+      flash[:error] = "Keep failed to update."
+      render :edit
+    end
   end
   
   def destroy
     @keep = Keep.find(params[:id])
     
     if @keep.destroy
-      flash.now[:notice] = "\"#{@keep.title}\" successfully deleted."
+      flash[:notice] = "\"#{@keep.title}\" successfully deleted."
       redirect_to root_path
     else
-      flash.now[:error] = "\"#{@keep.title}\" failed to delete."
-      redirect_to root_path
+      flash[:error] = "\"#{@keep.title}\" failed to delete."
+      redirect_to @keep
     end
   end
   
