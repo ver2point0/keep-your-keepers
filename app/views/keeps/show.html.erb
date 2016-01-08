@@ -1,3 +1,6 @@
-<h1 class="header-to-left-button"><%= @keep.title %></h1>
+<header>
+  <h1><%= @keep.title %></h1>
+</header>
 <%= link_to "Edit Keep", edit_user_keep_path, class: "btn btn-warning" %>
 <%= link_to "Delete Keep", user_keep_path, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this keep?" } %>
+<%= link_to "New Keeper", new_keep_keeper_path(@keep), class: "btn btn-success" %>

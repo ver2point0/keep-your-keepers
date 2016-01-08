@@ -1,0 +1,14 @@
+<h1>New Keeper</h1>
+<div class="row">
+  <div class="col-md-4">
+    <%= form_for keep_keepers_path do |f| %>
+      <div class="form-group">
+        <%= f.label :url %> (minimum of 1 character)
+        <%= f.text_field :url, class: "form-control", placeholder: "Enter keeper url" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Save", class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>

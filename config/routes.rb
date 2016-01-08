@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
   
   resources :users do 
@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   end
   
   # shallow resourcing for keeps and keepers
-  # resources :keeps do
-    # resources :keepers, except: :index
-  # end 
+  resources :keeps, except: :index do 
+    resources :keepers, except: :index
+  end 
   
   root "welcome#index"
 

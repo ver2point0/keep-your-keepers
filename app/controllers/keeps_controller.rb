@@ -26,7 +26,7 @@ class KeepsController < ApplicationController
   
   def update
     @keep = Keep.find(params[:id])
-    @keep.title = params[:keep][:title]
+    @keep.assign_attributes(keeps_params)
     
     if @keep.save
       flash[:notice] = "Keep successfully updated."
