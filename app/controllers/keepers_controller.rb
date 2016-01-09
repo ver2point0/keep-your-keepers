@@ -4,16 +4,17 @@ class KeepersController < ApplicationController
   end
 
   def new
+    @keep = Keep.find(params[:keep_id])
     @keeper = Keeper.new
   end
   
   def create
-    @keep = Keep.find(params[:id])
+    @keep = Keep.find(params[:keep_id])
     @keeper = @keep.keepers.build(keepers_params)
       
     if @keeper.save
       flash[:notice] = "Keeper was saved."
-      redirect_to root_path
+      redirect_to [@keep, @keeper]
     else
       flash[:error] = "Keeper failed to save."
       render :new

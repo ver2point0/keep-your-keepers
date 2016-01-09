@@ -1,7 +1,7 @@
 <h1>New Keeper</h1>
 <div class="row">
   <div class="col-md-4">
-    <%= form_for keep_keepers_path do |f| %>
+    <%= form_for [@keep, Keeper.new] do |f| %>
       <div class="form-group">
         <%= f.label :url %> (minimum of 1 character)
         <%= f.text_field :url, class: "form-control", placeholder: "Enter keeper url" %>
