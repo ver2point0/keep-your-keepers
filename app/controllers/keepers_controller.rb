@@ -24,9 +24,22 @@ class KeepersController < ApplicationController
   end
   
   def edit
+    @keep = Keep.find(params[:keep_id])
+    @keeper = @keep.keepers.find(params[:id])
   end
   
   def update
+    @keep = Keep.find(params[:keep_id])
+    @keeper = @keep.keepers.find(params[:id])
+    @keeper.assign_attributes(keepers_params)
+    
+    if @keeper.save
+      flash[:notice] = "\"#{@keeper.url}\" successfully updated."
+      redirect_to user_keep_path(current_user, @keep)
+    else
+      flash[:error] = "\"#{@keeper.url}\" failed to update."
+      render :edit
+    end
   end
   
   def destroy

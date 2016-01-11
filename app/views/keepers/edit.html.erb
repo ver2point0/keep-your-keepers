@@ -1,2 +1,14 @@
-<h1>Keepers#edit</h1>
-<p>Find me in app/views/keepers/edit.html.erb</p>
+<h1>Edit Keeper</h1>
+<div class="row">
+  <div class="col-md-4">
+    <%= form_for [@keep, @keeper] do |f| %>
+      <div class="form-group">
+        <%= f.label :url %> (minimum of 1 character)
+        <%= f.text_field :url, class: "form-control", placeholder: "Enter keeper url" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Save", class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+</div>
