@@ -12,10 +12,10 @@ class KeepsController < ApplicationController
     @keep = current_user.keeps.new(keeps_params)
     
     if @keep.save
-      flash[:notice] = "Keep was saved."
+      flash[:notice] = "\"#{@keep.title}\" was saved."
       redirect_to root_path
     else
-      flash[:error] = "Keep failed to save."
+      flash[:error] = "\"#{@keep.title}\"failed to save."
       render :new
     end
   end
@@ -29,10 +29,10 @@ class KeepsController < ApplicationController
     @keep.assign_attributes(keeps_params)
     
     if @keep.save
-      flash[:notice] = "Keep successfully updated."
+      flash[:notice] = "\"#{@keep.title}\" successfully updated."
       redirect_to root_path
     else
-      flash[:error] = "Keep failed to update."
+      flash[:error] = "\"#{@keep.title}\" failed to update."
       render :edit
     end
   end
@@ -45,7 +45,7 @@ class KeepsController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = "\"#{@keep.title}\" failed to delete."
-      redirect_to @keep
+      redirect_to root_path
     end
   end
   

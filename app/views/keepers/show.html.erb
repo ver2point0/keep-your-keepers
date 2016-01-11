@@ -1,2 +1,6 @@
-<h1>Keepers#show</h1>
-<p>Find me in app/views/keepers/show.html.erb</p>
+<header>
+  <h1><%= @keeper.url %></h1>
+</header>
+<!--change edit keeper path to correct path after implementing edit and update actions-->
+<%= link_to "Edit Keeper", root_path, class: "btn btn-warning" %>
+<%= link_to "Delete Keeper", keep_keeper_path, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this keeper?" } %>
