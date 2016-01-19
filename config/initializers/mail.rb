@@ -10,7 +10,7 @@ ActionMailer::Base.smtp_settings = {
 
 ActionMailer::Base.delivery_method = :smtp
 
-# Makes debuggin easier
+# Makes debugging easier
 ActionMailer::Base.raise_delivery_errors = true
 
 # Local mail emails me
