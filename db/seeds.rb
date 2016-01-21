@@ -22,7 +22,7 @@ require 'faker'
 end
 
 user = User.first
-user.update_attributes(username: Faker::Name.name, password: "helloworld", password_confirmation: "helloworld")
+user.update_attributes(username: Faker::Name.name, password: ENV['DEFAULT_PASSWORD'], password_confirmation: ENV['DEFAULT_PASSWORD'])
 user.skip_confirmation!
 user.save
 
