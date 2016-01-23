@@ -8,12 +8,14 @@ class KeepersController < ApplicationController
   def new
     @keep = Keep.find(params[:keep_id])
     @keeper = Keeper.new
+    authorize @keeper
   end
   
   def create
     @keep = Keep.find(params[:keep_id])
     @keeper = @keep.keepers.build(keepers_params)
-      
+    authorize @keeper
+    
     if @keeper.save
       flash[:notice] = "\"#{@keeper.url}\"  was saved."
       redirect_to user_keep_path(current_user, @keep)
@@ -26,12 +28,14 @@ class KeepersController < ApplicationController
   def edit
     @keep = Keep.find(params[:keep_id])
     @keeper = @keep.keepers.find(params[:id])
+    authorize @keeper
   end
   
   def update
     @keep = Keep.find(params[:keep_id])
     @keeper = @keep.keepers.find(params[:id])
     @keeper.assign_attributes(keepers_params)
+    authorize @keeper
     
     if @keeper.save
       flash[:notice] = "\"#{@keeper.url}\" successfully updated."
@@ -45,6 +49,7 @@ class KeepersController < ApplicationController
   def destroy
     @keep = Keep.find(params[:keep_id])
     @keeper = Keeper.find(params[:id])
+    authorize @keeper
     
     if @keeper.destroy
       flash[:notice] = "\"#{@keeper.url}\" successfully deleted."

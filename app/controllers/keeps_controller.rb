@@ -6,10 +6,12 @@ class KeepsController < ApplicationController
 
   def new
     @keep = Keep.new
+    authorize @keep
   end
 
   def create
     @keep = current_user.keeps.new(keeps_params)
+    authorize @keep
     
     if @keep.save
       flash[:notice] = "\"#{@keep.title}\" was saved."
@@ -22,11 +24,13 @@ class KeepsController < ApplicationController
   
   def edit
     @keep = Keep.find(params[:id])
+    authorize @keep
   end
   
   def update
     @keep = Keep.find(params[:id])
     @keep.assign_attributes(keeps_params)
+    authorize @keep
     
     if @keep.save
       flash[:notice] = "\"#{@keep.title}\" successfully updated."
@@ -39,6 +43,7 @@ class KeepsController < ApplicationController
   
   def destroy
     @keep = Keep.find(params[:id])
+    authorize @keep
     
     if @keep.destroy
       flash[:notice] = "\"#{@keep.title}\" successfully deleted."

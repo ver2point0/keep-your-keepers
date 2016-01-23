@@ -30,6 +30,8 @@ group :development do
   gem 'spring'  
 end
 
+# Use pundit for authorization
+gem 'pundit'
 # Use faker to generate random data
 gem 'faker'
 # Use devise for authentication

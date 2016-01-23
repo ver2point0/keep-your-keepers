@@ -1,0 +1,2 @@
+class KeepPolicy < ApplicationPolicy
+end

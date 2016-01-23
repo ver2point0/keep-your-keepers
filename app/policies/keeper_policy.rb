@@ -1,0 +1,2 @@
+class KeeperPolicy < ApplicationPolicy
+end

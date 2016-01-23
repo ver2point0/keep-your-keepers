@@ -21,10 +21,15 @@ require 'faker'
   user.save # updates database
 end
 
-user = User.first
-user.update_attributes(username: Faker::Name.name, password: ENV['DEFAULT_PASSWORD'], password_confirmation: ENV['DEFAULT_PASSWORD'])
-user.skip_confirmation!
-user.save
+user_first = User.first
+user_first.update_attributes(username: Faker::Name.name, password: ENV['DEFAULT_PASSWORD'], password_confirmation: ENV['DEFAULT_PASSWORD'])
+user_first.skip_confirmation!
+user_first.save
+
+user_last = User.last
+user_last.update_attributes(username: Faker::Name.name, password: ENV['DEFAULT_PASSWORD'], password_confirmation: ENV['DEFAULT_PASSWORD'])
+user_last.skip_confirmation!
+user_last.save
 
 puts "Seeds finished"
 puts "#{User.count} users created"
