@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
          
   has_many :keeps, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  
+  def liked(keeper)
+    likes.where(keeper_id: keeper.id).first
+  end
 end

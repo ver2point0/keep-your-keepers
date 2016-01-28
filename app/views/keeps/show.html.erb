@@ -2,7 +2,7 @@
   <h1><%= @keep.title %></h1>
 </header>
 <% if policy(@keep).edit? %>
-  <%= link_to "Edit Keep", edit_user_keep_path, class: "btn btn-warning" %>'
+  <%= link_to "Edit Keep", edit_user_keep_path, class: "btn btn-warning" %>
 <% end %>
 <% if policy(@keep).destroy? %>
   <%= link_to "Delete Keep", user_keep_path, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this keep?" } %>

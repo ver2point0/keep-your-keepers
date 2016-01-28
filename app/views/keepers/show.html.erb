@@ -1,9 +1,11 @@
 <header>
   <h1><%= @keeper.url %></h1>
 </header>
+
 <% if policy(@keeper).edit? %>
   <%= link_to "Edit Keeper", edit_keep_keeper_path, class: "btn btn-warning" %>
 <% end %>
 <% if policy(@keeper).destroy? %>
   <%= link_to "Delete Keeper", keep_keeper_path, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this keeper?" } %>
-<% end %> 
+<% end %>
+<%= render partial: "likes/like", locals: { keeper: @keeper } %>

@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     resources :keepers, except: :index
   end 
   
+  # shallow resourcing for keepers and likes
+  resources :keepers, except: :index do
+    resources :likes, only: [:create, :destroy]
+  end
+  
   root "welcome#index"
   
   post :incoming, to: "incoming#create"
