@@ -1,13 +1,17 @@
 <header>
-  <h1><%= @keep.title %></h1>
+  <h1><%= @keep.title %>
+    <% if policy(@keep).edit? %>
+      <%= link_to "Edit Keep", edit_user_keep_path, class: "btn btn-warning" %>
+    <% end %>
+    <% if policy(@keep).destroy? %>
+      <%= link_to "Delete Keep", user_keep_path, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this keep?" } %>
+    <% end %>
+    <% if policy(Keeper.new).create? %>
+      <%= link_to "New Keeper", new_keep_keeper_path(@keep), class: "btn btn-success" %>
+    <% end %>
+  </h1>
 </header>
-<% if policy(@keep).edit? %>
-  <%= link_to "Edit Keep", edit_user_keep_path, class: "btn btn-warning" %>
-<% end %>
-<% if policy(@keep).destroy? %>
-  <%= link_to "Delete Keep", user_keep_path, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure you want to delete this keep?" } %>
-<% end %>
-<% if policy(Keeper.new).create? %>
-  <%= link_to "New Keeper", new_keep_keeper_path(@keep), class: "btn btn-success" %>
-<% end %>
-<%= render partial: "keepers/keeper", collection: @keep.keepers %>
+<div class="row">
+  <%= render partial: "keepers/keeper", collection: @keep.keepers %>
+</div>
+
