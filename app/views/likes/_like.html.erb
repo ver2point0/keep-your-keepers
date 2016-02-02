@@ -1,9 +1,11 @@
-<% if like = current_user.liked(keeper) %>
-  <%= link_to [keeper, like], class: "btn btn-danger", method: :delete do %>
-    <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unlike
-  <% end %>
-<% else %>
-  <%= link_to [keeper, Like.new], class: "btn btn-success", method: :post do %>
-    <i class="glyphicon glyphicon-star"> </i>&nbsp; Like
+<% if policy(Like.new).create? %>
+  <% if like = current_user.liked(keeper) %>
+    <%= link_to [keeper, like], class: "btn btn-danger", method: :delete do %>
+      <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; Unlike
+    <% end %>
+  <% else %>
+    <%= link_to [keeper, Like.new], class: "btn btn-success", method: :post do %>
+      <i class="glyphicon glyphicon-star"> </i>&nbsp; Like
+    <% end %>
   <% end %>
 <% end %>
