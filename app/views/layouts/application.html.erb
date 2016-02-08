@@ -19,8 +19,7 @@
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li><a href="">Current user: <%= current_user.username %></a></li>
-            <!--change keepers path to user#show-->
-            <li><%= link_to "Keepers", root_path %></li>
+            <li><%= link_to "Keepers", users_show_path %></li>
             <li><%= link_to "Edit profile", edit_user_registration_path %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
           <% else %>
