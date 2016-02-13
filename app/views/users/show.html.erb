@@ -5,13 +5,20 @@
 <div class="container">
   <div class="row">
     <h3>Keepers</h3>
-       
+    <% @user_keepers.each do |keeper_array| %>
+       <%= render partial: "keepers/keeper", collection: keeper_array %>
+    <% end %>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
     <h3>Liked Keepers</h3>
-      
+    <% @liked_keepers.each do |keeper| %>
+      <div class="col-md-3">
+        <p><%= link_to keeper.url, keep_keeper_path(keeper.keep, keeper.id) %></p>
+        <p><%= render partial: "likes/like", locals: { keeper: keeper } %></p>
+      </div>
+    <% end %>
   </div>
 </div>
