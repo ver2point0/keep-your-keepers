@@ -4,9 +4,9 @@
 
 Keep your Keepers allows users to bookmark URLs via email, browse other's bookmarks, and maintain a personal index of categorized bookmarks.
 
-![rsz_6rqzq](https://cloud.githubusercontent.com/assets/12492121/13174683/6c6a9c78-d6d3-11e5-9a0d-7f58cf0cef5b.png)
+![rsz_6rqzq](https://cloud.githubusercontent.com/assets/12492121/20918689/4f0b848a-bb66-11e6-8710-96e999c952ab.png)
 
-## Make a Keep, share your Keepers
+## Make a Keep, share your Keepers!
 
 The current version is deployed on Heroku: [Keep your Keepers](http://kyk-app.herokuapp.com/)
 
